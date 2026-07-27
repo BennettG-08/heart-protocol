@@ -1,31 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Protocol</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Heart Protocol</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div id="loading-screen">
+<div class="stars"></div>
+
+<div class="container">
 
     <div class="terminal">
 
+        <div class="top">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <h1>HEART_PROTOCOL</h1>
 
-        <div id="terminal-text"></div>
+        <div id="systemText"></div>
+
+        <div id="aiBox" class="hidden">
+
+            <div class="bot">
+                🤖 AURA AI
+            </div>
+
+            <p id="message"></p>
+
+        </div>
+
+
+        <div id="question" class="hidden">
+
+            <h2>
+                ❤️ ¿Aceptarías ser mi novia? ❤️
+            </h2>
+
+
+            <button id="yes">
+                🩷 Sí, acepto
+            </button>
+
+
+            <button id="think">
+                🤍 Necesito pensarlo
+            </button>
+
+
+        </div>
+
+
+        <div id="final" class="hidden">
+
+            <h2>
+                ✔ Solicitud aceptada
+            </h2>
+
+            <p>
+                Gracias por regalarme este momento.
+                <br><br>
+                Este no es el final del proyecto...
+                <br>
+                es el comienzo de nuestra historia. ❤️
+            </p>
+
+        </div>
+
 
     </div>
 
 </div>
+
 
 <script src="script.js"></script>
 
