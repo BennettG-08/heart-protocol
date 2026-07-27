@@ -1,80 +1,41 @@
-const systemText = document.getElementById("systemText");
-const aiBox = document.getElementById("aiBox");
-const message = document.getElementById("message");
-const question = document.getElementById("question");
-const final = document.getElementById("final");
+function createHearts(){
 
-const boot = [
-    "SYSTEM BOOTING...",
-    "Loading modules...",
-    "Initializing AURA AI...",
-    "Access Granted ✓"
-];
+    for(let i = 0; i < 60; i++){
 
-let i = 0;
+        const heart = document.createElement("div");
 
-function startBoot(){
+        heart.innerHTML = "❤️";
 
-    if(i < boot.length){
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (20 + Math.random() * 25) + "px";
+        heart.style.zIndex = "9999";
+        heart.style.pointerEvents = "none";
 
-        systemText.innerHTML += boot[i] + "<br>";
+        document.body.appendChild(heart);
 
-        i++;
 
-        setTimeout(startBoot,800);
+        setTimeout(() => {
 
-    } else {
+            heart.style.transition = "transform 4s ease, top 4s ease, opacity 4s ease";
 
-        setTimeout(showAI,1000);
+            heart.style.top = "-10vh";
+
+            heart.style.transform =
+            `translateX(${Math.random()*200-100}px) rotate(${Math.random()*360}deg)`;
+
+            heart.style.opacity = "0";
+
+        },100);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        },4500);
 
     }
 
 }
-
-
-function showAI(){
-
-    aiBox.classList.remove("hidden");
-
-    message.innerHTML = `
-    Hola.<br><br>
-    Este proyecto fue creado para una persona especial.<br><br>
-    Hay cosas que ningún código puede explicar.<br>
-    Y esta es una de ellas. ❤️
-    `;
-
-    setTimeout(()=>{
-
-        question.classList.remove("hidden");
-
-        question.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    },2000);
-
-}
-
-
-
-document.getElementById("yes").onclick=function(){
-
-    question.classList.add("hidden");
-
-    final.classList.remove("hidden");
-
-    final.scrollIntoView({
-        behavior:"smooth"
-    });
-
-};
-
-
-document.getElementById("think").onclick=function(){
-
-    alert("Está bien ❤️. Tómate tu tiempo.");
-
-};
-
-
-startBoot();
