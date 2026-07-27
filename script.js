@@ -18,7 +18,6 @@ const bootLines = [
     "ACCESS GRANTED ✓"
 ];
 
-
 let bootIndex = 0;
 
 
@@ -32,7 +31,7 @@ function startBoot(){
 
         setTimeout(startBoot,700);
 
-    }else{
+    } else {
 
         setTimeout(startAI,1000);
 
@@ -47,18 +46,16 @@ const aiLines = [
     "",
     "Este proyecto fue creado para una persona especial.",
     "",
-    "No fue hecho para una empresa.",
-    "No fue hecho para una tarea.",
-    "",
-    "Fue creado porque había algo importante que decir.",
+    "No es una página común.",
+    "Cada línea de código tiene un propósito.",
     "",
     "Analizando recuerdos...",
     "Analizando momentos...",
-    "Analizando sonrisas...",
+    "Analizando emociones...",
     "",
     "Resultado encontrado:",
     "",
-    "Hay personas que llegan y hacen que todo sea diferente ❤️"
+    "Hay alguien que hace que todo sea diferente ❤️"
 ];
 
 
@@ -74,7 +71,6 @@ function startAI(){
 }
 
 
-
 function writeAI(){
 
     if(aiIndex < aiLines.length){
@@ -85,9 +81,12 @@ function writeAI(){
 
         setTimeout(writeAI,450);
 
-    }else{
+    } else {
 
-        setTimeout(showQuestion,1200);
+        setTimeout(()=>{
+            question.classList.remove("hidden");
+            question.scrollIntoView({behavior:"smooth"});
+        },1500);
 
     }
 
@@ -95,85 +94,72 @@ function writeAI(){
 
 
 
-function showQuestion(){
+yesButton.addEventListener("click",()=>{
 
-    question.classList.remove("hidden");
-
-    question.scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-
-yesButton.onclick = function(){
-
-    question.classList.add("hidden");
+    question.style.display="none";
 
     final.classList.remove("hidden");
 
-    final.scrollIntoView({
-        behavior:"smooth"
-    });
-
     createHearts();
 
-};
+});
 
 
 
-thinkButton.onclick = function(){
+thinkButton.addEventListener("click",()=>{
 
     alert(
-    "Está bien ❤️\n\n" +
-    "Lo importante es que sea una decisión sincera."
+        "Está bien ❤️\n\n" +
+        "Lo importante es que tu respuesta sea sincera."
     );
 
-};
+});
 
 
 
 
 function createHearts(){
 
-    for(let i = 0; i < 80; i++){
+    for(let i = 0; i < 120; i++){
 
         const heart = document.createElement("div");
 
-        heart.innerHTML = "❤️";
+        heart.innerHTML="❤️";
 
-        heart.style.position = "fixed";
-        heart.style.left = Math.random()*100 + "vw";
-        heart.style.top = "100vh";
-        heart.style.fontSize = (15 + Math.random()*30)+"px";
-        heart.style.zIndex = "9999";
-        heart.style.pointerEvents = "none";
+        heart.style.position="fixed";
+        heart.style.bottom="-50px";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(20+Math.random()*30)+"px";
+        heart.style.zIndex="99999";
+        heart.style.pointerEvents="none";
 
         document.body.appendChild(heart);
 
 
-        setTimeout(()=>{
+        const animation = heart.animate(
+            [
+                {
+                    transform:"translateY(0) rotate(0deg)",
+                    opacity:1
+                },
+                {
+                    transform:
+                    `translateY(-110vh) rotate(${Math.random()*720}deg)`,
+                    opacity:0
+                }
+            ],
+            {
+                duration:4000 + Math.random()*2000,
+                easing:"ease-out"
+            }
+        );
 
-            heart.style.transition =
-            "all 4s ease";
 
-            heart.style.top="-10vh";
-
-            heart.style.transform =
-            `translateX(${Math.random()*300-150}px) rotate(${Math.random()*360}deg)`;
-
-            heart.style.opacity="0";
-
-
-        },100);
-
-
-        setTimeout(()=>{
+        animation.onfinish=()=>{
 
             heart.remove();
 
-        },4500);
+        };
 
     }
 
