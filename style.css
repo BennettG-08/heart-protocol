@@ -4,10 +4,14 @@
     box-sizing:border-box;
 }
 
+html{
+    min-height:100%;
+}
+
 body{
-    min-height:100vh;
+    min-height:100%;
     overflow-x:hidden;
-    overflow-y:auto;
+    overflow-y:scroll;
     background:#020204;
     color:white;
     font-family:"Poppins",sans-serif;
@@ -28,26 +32,25 @@ body{
     from{
         transform:translateY(0);
     }
+
     to{
         transform:translateY(40px);
     }
 }
-
 
 .container{
     width:100%;
     min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     padding:20px;
 }
 
-
 .terminal{
-
     width:100%;
     max-width:700px;
+    margin:20px 0;
 
     background:rgba(10,10,15,.94);
 
@@ -62,201 +65,112 @@ body{
     inset 0 0 30px rgba(0,255,153,.1);
 
     backdrop-filter:blur(10px);
-
 }
 
-
 .top{
-
     display:flex;
     gap:8px;
     margin-bottom:25px;
-
 }
-
 
 .top span{
-
     width:12px;
     height:12px;
-
     border-radius:50%;
-
     background:#00ff99;
-
 }
-
 
 h1{
-
     text-align:center;
-
     color:#00ff99;
-
     letter-spacing:5px;
-
     font-size:28px;
-
     margin-bottom:30px;
-
 }
-
 
 #systemText{
-
     font-family:"JetBrains Mono",monospace;
-
     color:#00ff99;
-
     line-height:1.8;
-
 }
-
 
 #aiBox{
-
     margin-top:25px;
-
     padding:20px;
-
     border-radius:15px;
-
     background:rgba(0,255,153,.08);
-
     border:1px solid rgba(0,255,153,.4);
-
 }
-
 
 .bot{
-
     color:#00ff99;
-
     font-weight:bold;
-
     margin-bottom:15px;
-
 }
-
 
 #message{
-
     line-height:1.8;
-
 }
-
 
 #question{
-
     margin-top:35px;
-
     text-align:center;
-
 }
-
 
 #question h2{
-
     margin-bottom:25px;
-
 }
-
 
 button{
-
     display:block;
-
     width:80%;
-
     max-width:300px;
-
     margin:15px auto;
-
     padding:15px;
-
     border:none;
-
     border-radius:30px;
-
     cursor:pointer;
-
     font-size:16px;
-
     font-weight:bold;
-
     transition:.3s;
-
 }
-
 
 #yes{
-
     background:#ff4f9a;
-
     color:white;
-
 }
-
 
 #think{
-
     background:#333;
-
     color:white;
-
 }
-
 
 button:hover{
-
     transform:scale(1.05);
-
 }
-
 
 #final{
-
     margin-top:30px;
-
     text-align:center;
-
     color:#ff4f9a;
-
 }
-
 
 .hidden{
-
     display:none;
-
 }
-
 
 @media(max-width:600px){
 
     .terminal{
-
         padding:20px;
-
-        margin:20px 0;
-
     }
-
 
     h1{
-
         font-size:20px;
-
-        letter-spacing:3px;
-
     }
-
 
     #systemText,
     #message{
-
         font-size:14px;
-
     }
-
 }
